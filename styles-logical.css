@@ -1,0 +1,211 @@
+@font-face {
+    font-family: charter;
+    src: url(fonts/charter-regular.otf);
+    font-style: normal;
+    font-weight: 400;
+}
+@font-face {
+    font-family: charter;
+    src: url(fonts/charter-bold-italic.otf);
+    font-style: italic;
+    font-weight: 400;
+}
+@font-face {
+    font-family: charter;
+    src: url(fonts/charter-bold.otf);
+    font-style: normal;
+    font-weight: 700;
+}
+@font-face {
+    font-family: charter;
+    src: url(fonts/charter-bold-italic.otf);
+    font-style: italic;
+    font-weight: 700;
+}
+:root {
+    font-size: 18px;
+    --mywhite30: white;
+    --mywhite20: #A5A3A5;
+    --mywhite15: #3A3539;
+    --mywhite10: #616161;
+}
+body {
+    color: var(--mywhite30);
+    font-family: 'Nunito', sans-serif;
+    /* font-family: charter; */
+    background: #251F24;
+    margin: 0;
+}
+a {
+    color:var(--mywhite30);
+}
+.header {
+    position: sticky;
+    inset-block-start: -45px;
+    /* (esto lo hacemos para que el header nos persiga y para que sea relativo a algo asi no se va a la parte superior del todo de la web, ya que lo tenemos en position absolute y necesita ser relativo a algo. si no quisieramos que nos siga al scrollear simplemente usariamos relative en vez de sticky) */
+    /* (el inset-block-start: -45; es porque los elementos con positions sticky necesitan ser relativos a algo para empezar a seguirnos, en este caso es cuando llegue al -45px de top cuando scrolleemos, comenzara a seguirnos) */
+}
+.header-content{
+    position: relative;
+    inset-block-start: 65px ;
+    /* (esto lo hacemos para que nuestro header no se vaya a la izquierda del todo al poner el inset-inline-start: -188px, lo hacemos aparte para que el header siga siendo sticky, es decir que nos persiga al scrollear) */
+}
+header {
+    font-size: 14px;
+    color: var(--mywhite30);
+    position: absolute;
+    /* top seria lo siguiente en valores logicos */
+    /* inset-block-start: ; */
+    /* bottom seria */
+    /* inset-block-end: ; */
+    /* left seria */
+    inset-inline-start: -208px ;
+    /* right seria */
+    /* inset-inline-end: ; */
+    inline-size: 188px;
+
+}
+header li{
+    color: var(--mywhite20);
+    margin-block-end: 16px;
+}
+header a {
+    color: var(--mywhite20);
+    text-decoration: none;
+    /* (esto sirve para cambiar el color de los enlaces ya que no lo hereda del header si no del a que esta arriba y el text decoration none es para sacar el subrallado, si lo quisieramos agregar un subrallado es text-decoration: underline;) */
+}
+header a:hover{
+    color: var(--mywhite30);
+}
+nav details summary{
+    font-weight: bold;
+}
+h1 {
+    font-size: 60px;
+    font-weight: bold;
+    margin-block-start: 64px;
+    margin-block-end: 16px;
+}
+h2 {
+    font-size: 2em;
+    /* el font size en este caso seria de 32px porque el em esta reaccionando a los 16px que tiene por defecto el elemento mas cercano al root (html en este caso) y no esta reaccionando a los 60 px de h1 porque no esta anidado dentro de este, si h2 estuviera anidada dentro de un body con font size de 60px, los px de este h2 serian de 120 no de 32. */
+    font-weight: normal;
+    margin-block: 40px;
+    font-weight: bold;
+}
+h3 {
+    font-size: 1.5em;
+    font-weight: normal;
+    font-weight: 600;
+    margin-block: 16px;
+}
+hr{
+    margin-block: 40px;
+    border-color: rgba(97, 97, 97, 0.2);
+}
+pre {
+    background: var(--mywhite15);
+    padding: 40px;
+    overflow: auto;
+    /* (overflow: auto lo utilizamos para que al achicarce la pagina el texto del pre no me genere un scroll horizontal que sobre pase su margen, si no que el scroll horizontal estara dentro de su caja siempre) */
+    border-radius: 8px;
+    border: 10px solid #5551FF;
+    box-shadow: -10px 10px 0 0 #ABAAF6;
+    margin-block-end: 30px;
+    /* border-start-start-radius: 60px; */
+    /* border-end-end-radius: 60px; */
+    /* border-start-end-radius: 60px; */
+    /* border-end-start-radius: 60px; */
+    /* (estos corresponenden a cada una de las esquinas del border en valores logicos) */
+}
+p{
+    color: var(--mywhite20);
+}
+blockquote{
+    background: var(--mywhite15);
+    border-radius: 8px;
+    /* (border-radius es para darla esa curvatura a las esquinas del border y dejarlo redondeado) */
+    line-height: 32px;
+    font-size: 24px;
+    margin-block-start: 80px;
+    margin-block-end: 63px;
+    padding-inline-start: 24px;
+    padding-inline-end: 24px;
+    padding-block-start: 24px;
+    padding-block-end: 24px;
+}
+blockquote p{
+    color: var(--mywhite30);
+}
+.wrapper{
+    max-inline-size: 902px;
+    margin: auto;
+}
+.main-content{
+padding-inline: 16px;
+}
+.hero {
+    background-image: linear-gradient(96.07deg, #314755 30.63%, #26A0DA 102.18%);
+    /* (96.07deg son los grados de rotacion que se aplico al degradado, porque por defecto van de arriba hacia abajo, al rotarlo 96 grados queda de izquierda a derecha mas o menos) */
+    height: 350px;
+}
+.section-content img{
+    margin-block-start: 40px;
+    display: block;
+    /* (le damos display de block a las imagenes para que generen margin colapsing y se superpongan los margenes. es decir que no se vayan sumando y generando un espacio mayor al que deseamos) */
+    max-inline-size: 100%;
+    /* (utilizamos max-inline-size: 100% para que las imagenes sean resposive, utilizando los valores logicos) */
+}
+.section-content {
+    counter-reset: titleList;
+}
+.section-content h3{
+    counter-increment: titleList;
+}
+.section-content h3::before{
+    content: counter(titleList, decimal) '. ';
+}
+/* .section-content h3::after{
+    content: '';
+    width: 32px;
+    height: 4px;
+    background: var(--mywhite15);
+    display: inline-block;
+} */
+.slider-container{
+    display: block;
+    overflow: auto;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    font-size: 0;
+}
+.video{
+    margin: 0;
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+}
+.slider-bullet-list{
+    text-align: center;
+    margin-block-start: 10px;
+    /* margin-inline-start: auto;
+    margin-inline-end: auto; */
+    /* width: fit-content;
+    position: relative; */
+    /* text-align: center; */
+    /* inset-block-start: -50px; */
+    /* (Esto hace que los numeros o puntos que debemos clickar para generar el scroll de contenido dentro del slider, esten dentro del primer elemento y centrado) */
+}
+
+.slider-bullet{
+    display: inline-block;
+    inline-size: 15px;
+    block-size: 15px;
+    background: white;
+    border-radius: 50%;
+}
+.slider ::-webkit-scrollbar{
+    display: none;
+    /* (esto es para que no se vea la barra de scroll dentro de los sliders) */
+}
