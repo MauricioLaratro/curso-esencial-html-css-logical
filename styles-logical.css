@@ -40,29 +40,31 @@ a {
     color:var(--mywhite30);
 }
 .header {
-    position: sticky;
-    inset-block-start: -45px;
+    margin-block-start: 20px;
+    /* position: sticky;
+    inset-block-start: -45px; */
     /* (esto lo hacemos para que el header nos persiga y para que sea relativo a algo asi no se va a la parte superior del todo de la web, ya que lo tenemos en position absolute y necesita ser relativo a algo. si no quisieramos que nos siga al scrollear simplemente usariamos relative en vez de sticky) */
     /* (el inset-block-start: -45; es porque los elementos con positions sticky necesitan ser relativos a algo para empezar a seguirnos, en este caso es cuando llegue al -45px de top cuando scrolleemos, comenzara a seguirnos) */
 }
 .header-content{
-    position: relative;
-    inset-block-start: 65px ;
+    padding-inline: 20px;
+    /* position: relative;
+    inset-block-start: 65px ; */
     /* (esto lo hacemos para que nuestro header no se vaya a la izquierda del todo al poner el inset-inline-start: -188px, lo hacemos aparte para que el header siga siendo sticky, es decir que nos persiga al scrollear) */
 }
 header {
     font-size: 14px;
     color: var(--mywhite30);
-    position: absolute;
+    /* position: absolute; */
     /* top seria lo siguiente en valores logicos */
     /* inset-block-start: ; */
     /* bottom seria */
     /* inset-block-end: ; */
     /* left seria */
-    inset-inline-start: -208px ;
+    /* inset-inline-start: -208px ; */
     /* right seria */
     /* inset-inline-end: ; */
-    inline-size: 188px;
+    /* inline-size: 188px; */
 
 }
 header li{
@@ -81,9 +83,9 @@ nav details summary{
     font-weight: bold;
 }
 h1 {
-    font-size: 60px;
+    font-size: 40px;
     font-weight: bold;
-    margin-block-start: 64px;
+    margin-block-start: 20px;
     margin-block-end: 16px;
 }
 h2 {
@@ -147,7 +149,7 @@ padding-inline: 16px;
 .hero {
     background-image: linear-gradient(96.07deg, #314755 30.63%, #26A0DA 102.18%);
     /* (96.07deg son los grados de rotacion que se aplico al degradado, porque por defecto van de arriba hacia abajo, al rotarlo 96 grados queda de izquierda a derecha mas o menos) */
-    height: 350px;
+    block-size: 50px;
 }
 .section-content img{
     margin-block-start: 40px;
@@ -209,3 +211,47 @@ padding-inline: 16px;
     display: none;
     /* (esto es para que no se vea la barra de scroll dentro de los sliders) */
 }
+
+.form input{
+    inline-size: 100%;
+    border: 1px solid var(--mywhite30);
+    background: #251F24;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding-inline: 16px;
+    padding-block: 12px;
+    color: var(--mywhite30);
+    font-size: 16px;
+    display: block;
+    margin-block-end: 24px;
+}
+.form input[type="submit"] {
+    background: #157EFB;
+    border: none;
+}
+
+@media screen and (min-width: 1366px) {
+    .hero{
+        block-size: 350px;
+    }
+    .header {
+        position: sticky;
+        inset-block-start: -45px;
+    }
+    .header-content{
+        position: relative;
+        inset-block-start: 65px ;
+        padding-inline: 0;
+    }
+    header {
+        font-size: 14px;
+        color: var(--mywhite30);
+        position: absolute;
+        inset-inline-start: -208px ;
+        inline-size: 188px;
+    }
+    h1 {
+        font-size: 60px;
+        margin-block-start: 64px;
+    }
+    }
